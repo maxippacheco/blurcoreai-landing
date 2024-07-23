@@ -1,13 +1,31 @@
 import { Linkedin, MapPin } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 export const Footer = () => {
 
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="h-screen w-full p-0 m-0 flex items-center justify-center">
+        <ClipLoader color="gray" size={150} />
+      </div>
+    ) // or some loading placeholder
+  }
+
+  const currentTheme = theme === "system" ? resolvedTheme : theme;
+
   
   return (
-    <footer className={`relative bg-blueGray-200 pt-8 pb-6 ${ theme === "dark" ? "bg-slate-900" : "bg-gray-100" }`}>
+    <footer className={`relative bg-blueGray-200 pt-8 pb-6 ${ currentTheme === "dark" ? "bg-slate-900" : "bg-gray-100" }`}>
       <div className="container mx-auto px-4 mt-10">
         <div className="flex flex-wrap text-left lg:text-left">
           <div className="w-full lg:w-6/12 px-4">
