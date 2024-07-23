@@ -8,14 +8,22 @@ import Navbar from "@/components"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Pricing Page",
-  description: "Pricing page for a SaaS product using Shadcn UI",
+  title: "BlurcoreAI",
+  description: "BlurcoreAI is an AI agency that provides solutions for companies.",
+  icons: {
+    icon: {
+      url: "./Png-vectorizado.png",
+      type: "image/png",
+    }
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
+
       <body className={inter.className}>
+        <link rel="icon" href="/Png-vectorizado.png" />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 			    <Navbar SwitchTheme={() => <ModeToggle /> } />
           {children}

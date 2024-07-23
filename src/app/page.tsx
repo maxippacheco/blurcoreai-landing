@@ -110,7 +110,9 @@ export default function App() {
         <p className="text-lg mb-4">Agenda una llamada con el equipo de Blurcore AI</p>
         {/* TODO: ACCORDION COMPONENT */}
         <Button className="mt-4 dark:bg-blue-500 bg-blue-500 dark:text-white text-white text-xl p-8 rounded-lg hover:dark:bg-blue-600 hover:bg-blue-500">
-          Agenda una llamada <PhoneCall className="ml-2" />
+          <a href="https://calendly.com/blurcore-ai/30min" target="_blank" className="flex items-center">
+            Agenda una llamada <PhoneCall className="ml-2" />
+          </a>
         </Button>
 
       </div>
